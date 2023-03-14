@@ -1,0 +1,45 @@
+project: example
+sequence_files:
+  file1:
+    name: /root/ccc/mouse/GSE112642/fastq/example_1.fastq.gz
+    base_definition:
+    - BC(1-8)
+    - UMI(9-12)
+  file2:
+    name: /root/ccc/mouse/GSE112642/fastq/example_2.fastq.gz
+    base_definition: cDNA(1-75)
+reference:
+  STAR_index: /root/ccc/mouse/index_zumis
+  GTF_file: /root/ccc/mouse/genes.gtf
+  additional_STAR_params: ''
+  additional_files: ~
+out_dir: /root/ccc/mouse/GSE112642/results/example
+num_threads: 20
+mem_limit: 0
+filter_cutoffs:
+  BC_filter:
+    num_bases: 1
+    phred: 20
+  UMI_filter:
+    num_bases: 1
+    phred: 20
+barcodes:
+  barcode_num: 100
+  barcode_file: /root/ccc/mouse/GSE112642/GSE112642_Cel-seq_barcodes.csv
+  automatic: yes
+  BarcodeBinning: 0
+  nReadsperCell: 100
+counting_opts:
+  introns: yes
+  downsampling: '0'
+  strand: 0
+  Ham_Dist: 0
+  velocyto: no
+  primaryHit: yes
+  twoPass: yes
+make_stats: yes
+which_Stage: Filtering
+Rscript_exec: Rscript
+STAR_exec: STAR
+pigz_exec: pigz
+samtools_exec: samtools
