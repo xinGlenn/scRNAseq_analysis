@@ -1,0 +1,20 @@
+#download data
+#download to local windows pc
+bin\prefetch.exe -X 100000000 --option-file D:\download\SRR_Acc_List.txt -O D:\download\GSE139389
+
+#translate sra to fastq
+bash sra_fastq.sh
+
+#make yaml files
+bash make_yaml
+
+#download barcode file
+#only a column of barcodes in this file
+
+#example.yaml as an example
+#attention: length
+#file1: base_definition: - BC(barcodes) - UMI 
+#file2: base_definition: cDNA
+
+#run zUMIs to get countmatrix
+bash run_zUMIs.sh
