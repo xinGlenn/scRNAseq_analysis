@@ -1,0 +1,24 @@
+#download data
+#download to local windows pc
+bin\prefetch.exe -X 100000000 --option-file D:\download\SRR_Acc_List.txt -O D:\download\GSE180357
+
+#translate sra to fastq
+bash sra_fastq.sh
+
+#cellranger
+#https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/using/tutorial_ct
+#rename files
+#preHSC前缀，带有这个前缀的会合并成一个文件
+#L001是一个样本，第二个样本就是L002
+#preHSC_S1_L001_I1_001.fastq.gz
+#preHSC_S1_L001_R1_001.fastq.gz
+#preHSC_S1_L001_R2_001.fastq.gz
+cellranger count --id=preHSC --transcriptome=/root/index/mouse/refdata-gex-xxxxxxxx/ --fastqs=/root/xxxxxx/fastq/ --expect-cells=1000 --sample=preHSC &
+#--id=preHSC  #需要count的文件的前缀
+#--transcriptome=index所在目录   #refdata-gex-mm10-2020-A.tar.gz需解压成一个文件夹
+#--fastqs=files所在的文件夹
+#--sample=生成文件夹的名字  #在要生成结果的目录下运行
+#&后台运行
+
+
+
