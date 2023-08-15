@@ -1,0 +1,6 @@
+#进入H:盘（sratoolkit下载的盘）
+\H:
+\sratoolkit.3.0.2-win64
+#SRR_Acc_List.txt是从SRA上下载的SRR列表
+bin\prefetch.exe -X 100000000 --option-file D:\download\SRR_Acc_List.txt -O D:\download\GSE108653
+
