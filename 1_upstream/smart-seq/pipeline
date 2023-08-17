@@ -1,0 +1,12 @@
+STAR --genomeDir /root/index/human/star --runThreadN 20 --runDirPerm All_RWX --readFilesCommand zcat --outFilterScoreMinOverLread 0.3 --outFilterMatchNminOverLread 0.3 --outFilterMultimapNmax 100 --winAnchorMultimapNmax 100 --outMultimapperOrder Random --runRNGseed 777 --outSAMmultNmax 1 --soloType SmartSeq --outSAMtype BAM Unsorted --twopassMode Basic --outFilterType BySJout --alignSJoverhangMin 8 --alignSJDBoverhangMin 1 --outFilterMismatchNmax 999 --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 1000000 --readFilesManifest E-MTAB-9388_manifest.tsv --soloUMIdedup Exact --soloFeatures Gene GeneFull --soloOutFileNames alignment/ features.tsv barcodes.tsv matrix.mtx
+
+#使用下面的脚本
+STAR --genomeDir /root/singlecell/human/index/star --runThreadN 20 --runDirPerm All_RWX --readFilesCommand zcat --outFilterScoreMinOverLread 0.3 --outFilterMatchNminOverLread 0.3 --outFilterMultimapNmax 100 --winAnchorMultimapNmax 100 --outMultimapperOrder Random --runRNGseed 777 --outSAMmultNmax 1 --soloType SmartSeq --outSAMtype BAM Unsorted --twopassMode Basic --outFilterType BySJout --limitSjdbInsertNsj 50000000 --alignSJoverhangMin 8 --alignSJDBoverhangMin 1 --limitOutSJcollapsed 5000000 --outFilterMismatchNmax 999 --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 1000000 --readFilesManifest paths.tsv --soloUMIdedup Exact --soloFeatures Gene GeneFull --soloOutFileNames ./results/ features.tsv barcodes.tsv matrix.mtx
+#--genomeDir STAR基因注释所在文件夹
+#--limitOutSJcollapsed 5000000  有limitOutSJcollapsed报错可以提高
+#--readFilesManifest paths.tsv
+#tsv文件示例
+/root/gastrulaTE/E-MTAB-9388/fastq/ERR4675296_1.fastq.gz	/root/gastrulaTE/E-MTAB-9388/fastq/ERR4675296_2.fastq.gz	ERR4675296
+/root/gastrulaTE/E-MTAB-9388/fastq/ERR4675297_1.fastq.gz	/root/gastrulaTE/E-MTAB-9388/fastq/ERR4675297_2.fastq.gz	ERR4675297
+/root/gastrulaTE/E-MTAB-9388/fastq/ERR4675298_1.fastq.gz	/root/gastrulaTE/E-MTAB-9388/fastq/ERR4675298_2.fastq.gz	ERR4675298
+#--soloOutFileNames ./results/输出文件到文件夹./results中（貌似会自己创建文件夹）
