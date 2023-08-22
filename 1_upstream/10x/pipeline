@@ -10,7 +10,7 @@ bash sra_fastq.sh
 #rename files
 #preHSC前缀，带有这个前缀的会合并成一个文件
 #L001是一个样本，第二个样本就是L002
-#preHSC_S1_L001_I1_001.fastq.gz
+#preHSC_S1_L001_I1_001.fastq.gz   此文件非必要，不存在也可以运行
 #preHSC_S1_L001_R1_001.fastq.gz
 #preHSC_S1_L001_R2_001.fastq.gz
 cellranger count --id=preHSC --transcriptome=/root/index/mouse/refdata-gex-xxxxxxxx/ --fastqs=/root/xxxxxx/fastq/ --expect-cells=1000 --sample=preHSC &
